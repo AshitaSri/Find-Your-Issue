@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const fetchRepos = async () => {
             try {
-                const response = await axios.get('https://find-i853pxguo-ashitasris-projects.vercel.app//repos');
+                const response = await axios.get('https://find-ashen.vercel.app/repos');
                 setRepos(response.data);
                 setLoading(false);
             } catch (err) {
