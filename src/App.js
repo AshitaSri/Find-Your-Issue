@@ -2,7 +2,7 @@ import React from 'react';
 
 import NavBar from './components/Navbar/Navbar';
 
-import DashboardLayout from './components/Dashboard/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
     <div className="app">
       <NavBar />
       <div className="content">
-        <DashboardLayout />
+        <Dashboard />
       </div>
     </div>
   );

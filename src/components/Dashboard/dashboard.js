@@ -3,7 +3,7 @@ import Topics from '../Topics/Topics';
 import './Dashboard.css';
 import Home from '../Home/home';
 
-const DashboardLayout = () => {
+const Dashboard = () => {
     return (
         <div className="dashboard-layout">
             <div className="left-side">
@@ -19,4 +19,4 @@ const DashboardLayout = () => {
     );
 };
 
-export default DashboardLayout;
+export default Dashboard;
