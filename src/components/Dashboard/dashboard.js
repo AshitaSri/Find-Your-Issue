@@ -1,6 +1,6 @@
 import React from 'react';
 import Topics from '../Topics/Topics';
-import './Dashboard.css';
+import './dashboard.css';
 import Home from '../Home/home';
 
 const Dashboard = () => {

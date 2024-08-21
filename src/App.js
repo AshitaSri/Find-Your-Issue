@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './components/Navbar/Navbar';
-import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard from './components/dashboard/dashboard'
 
 function App() {
 
