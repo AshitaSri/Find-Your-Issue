@@ -1,0 +1,53 @@
+/* Topics.css */
+.topics-container {
+    background-color: #f9f6f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.topics-container h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.topics-dropdown {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ebe0d8;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.selected-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.selected-topics p {
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.tag {
+    background-color: #c5b2a1;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.tag span {
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
