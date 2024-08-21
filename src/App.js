@@ -1,12 +1,17 @@
 import React from 'react';
-import Home from './components/home';
+import NavBar from './components/Navbar/Navbar';
+// import dashboard from './components/dashboard/dashboard'
+import Page from './components/page/page';
 
 function App() {
 
   return (
-    <div className="App">
-      <h1>Open Source Projects Finder</h1>
-      <Home />
+    <div className="app">
+      <NavBar />
+      <div className="content">
+        {/* <dashboard /> */}
+        <Page/>
+      </div>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import Topics from '../Topics/Topics';
-import './dashboard.css';
+import './page.css';
 import Home from '../Home/home';
 
-const dashboard = () => {
+const Page = () => {
     return (
         <div className="dashboard-layout">
             <div className="left-side">
@@ -19,4 +19,4 @@ const dashboard = () => {
     );
 };
 
-export default dashboard;
+export default Page;
