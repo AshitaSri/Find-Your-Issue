@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './components/Navbar/Navbar';
-import Dashboard from './components/dashboard/dashboard'
+import dashboard from './components/dashboard/dashboard'
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
     <div className="app">
       <NavBar />
       <div className="content">
-        <Dashboard />
+        <dashboard />
       </div>
     </div>
   );
