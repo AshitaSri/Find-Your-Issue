@@ -1,4 +1,5 @@
 /* Home.css */
+
 h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -18,17 +19,20 @@ li {
 
 a {
     font-weight: bold;
-    color: #0366d6;
+    color: #4b6cb7; /* Updated link color */
     text-decoration: none;
 }
 
 a:hover {
+    color: #182848; /* Updated hover color */
     text-decoration: underline;
 }
 
 p {
     margin: 5px 0;
 }
+
+/* home.css */
 
 .home-container {
     height: 100%;
@@ -39,42 +43,90 @@ p {
 .search-section {
     margin-bottom: 20px;
 }
-
 .repos-container {
-    flex-grow: 1;
-    overflow-y: auto;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
     padding: 20px;
 }
+
 .repos-list {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .repo-item {
-    border-bottom: 1px solid #e0e0e0;
-    padding: 15px 0;
+    background-color: #ffffff;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
 }
 
-.repo-item:last-child {
-    border-bottom: none;
+.repo-item:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.repo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
 }
 
 .repo-name {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
     color: #0366d6;
     text-decoration: none;
 }
 
-.repo-description {
-    margin: 5px 0;
+.repo-issues {
+    font-size: 12px;
     color: #586069;
+    background-color: #f1f8ff;
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.repo-description {
+    font-size: 14px;
+    color: #24292e;
+    margin: 4px 0;
 }
 
 .repo-stats {
-    font-size: 14px;
+    font-size: 12px;
     color: #586069;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 800px; /* Adjust this value as needed */
+    margin: 0 auto 20px;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper > div {  /* This targets the SearchBar component */
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.generate-button {
+    background-color: #182848;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.generate-button:hover {
+    background-color: #4b6cb7;
 }
