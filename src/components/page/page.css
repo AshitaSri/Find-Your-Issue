@@ -2,10 +2,12 @@
 .dashboard-layout {
     display: flex;
     /* height: 100vh; */
+    margin-top: 33px;
     min-height: calc(100vh - 80px);
-    background-color: #f7f7f7;
+    background-color: #f5f7fa;
     padding: 20px;
     box-sizing: border-box;
+    
 }
 
 .left-side {

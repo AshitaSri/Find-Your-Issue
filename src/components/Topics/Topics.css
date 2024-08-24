@@ -1,9 +1,11 @@
 /* Topics.css */
+
 .topics-container {
-    background-color: #f9f6f1;
+    background-color: #ffffff;
+    border: 1px solid #2778db;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
     margin: 10px 0;
 }
 
@@ -17,10 +19,11 @@
     width: 100%;
     padding: 10px;
     border-radius: 8px;
-    border: none;
-    background-color: #ebe0d8;
+    border: 1px solid #e1e5ea; /* Updated border for dropdown */
+    background-color: #ffffff; /* Updated background for dropdown */
     font-size: 14px;
     outline: none;
+    color: #333333; /* Updated text color */
     margin-bottom: 15px;
 }
 
@@ -50,4 +53,11 @@
     margin-left: 8px;
     cursor: pointer;
     font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #ffffff; /* Sidebar background */
+    border-right: 1px solid #e1e5ea; /* Sidebar border */
+    padding: 20px;
 }

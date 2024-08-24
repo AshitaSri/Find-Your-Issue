@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import SearchBar from '../seachBar/SearchBar'; // Import the SearchBar component
+import SearchBar from '../seachBar/SearchBar';
 import './home.css';
 
 const Home = () => {
     const [repos, setRepos] = useState([]);
-    const [filteredRepos, setFilteredRepos] = useState([]); // State for filtered repositories
+    const [filteredRepos, setFilteredRepos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -14,7 +14,7 @@ const Home = () => {
             try {
                 const response = await axios.get('https://find-ashen.vercel.app/repos');
                 setRepos(response.data);
-                setFilteredRepos(response.data); // Initialize filteredRepos with all data
+                setFilteredRepos(response.data);
                 setLoading(false);
             } catch (err) {
                 setError('An error occurred while fetching repositories.');
@@ -27,7 +27,7 @@ const Home = () => {
 
     const handleSearch = (query) => {
         if (query === '') {
-            setFilteredRepos(repos); // If the query is empty, show all repos
+            setFilteredRepos(repos);
         } else {
             const filtered = repos.filter(repo =>
                 repo.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -37,30 +37,40 @@ const Home = () => {
         }
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    const handleGenerate = () => {
+        // Implement generate logic here if needed
+        console.log('Generate clicked');
+    };
 
-    if (error) {
-        return <div>{error}</div>;
-    }
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
 
     return (
         <div className="home-container">
-            <div className="search-section">
-                {/* <h1>Top GitHub Repositories</h1> */}
-                <SearchBar onSearch={handleSearch} />
+            <div className="search-container">
+                <div className="search-wrapper">
+                    <SearchBar onSearch={handleSearch} />
+                    <button onClick={handleGenerate} className="generate-button">
+                        Generate
+                    </button>
+                </div>
             </div>
+
+            
             <div className="repos-container">
                 <ul className="repos-list">
                     {filteredRepos.map(repo => (
                         <li key={repo.full_name} className="repo-item">
-                            <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-name">
-                                {repo.name}
-                            </a>
+                            <div className="repo-header">
+                                <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-name">
+                                    {repo.full_name}
+                                </a>
+                                <span className="repo-issues">{repo.open_issues} issues</span>
+                            </div>
                             <p className="repo-description">{repo.description}</p>
                             <p className="repo-stats">
-                                Stars: {repo.stargazers_count} | Language: {repo.language}
+                            lang: {repo.language} | stars: {repo.stargazers_count}K | 
+                            {/* last activity: {formatDistanceToNow(new Date(repo.updated_at), { addSuffix: true })} */}
                             </p>
                         </li>
                     ))}
