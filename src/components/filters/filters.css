@@ -1,8 +1,9 @@
 .filters {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
+    border: 1px solid #2778db;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
 .filters h3 {
@@ -37,7 +38,7 @@
     appearance: none;
     width: 20px;
     height: 20px;
-    background: #4CAF50;
+    background: #3a568e;
     cursor: pointer;
     border-radius: 50%;
 }
@@ -45,7 +46,7 @@
 .star-range::-moz-range-thumb {
     width: 20px;
     height: 20px;
-    background: #4CAF50;
+    background: #3a568e;
     cursor: pointer;
     border-radius: 50%;
 }
