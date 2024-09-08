@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Topics.css';
 
-const Topics = () => {
-    const availableTopics = ['HTML', 'CSS', 'JS', 'React', 'ExpressJS', 'Data Science', 'Data Mining'];
-    const [selectedTopics, setSelectedTopics] = useState([]);
+const Topics = ({ selectedTopics, setSelectedTopics }) => {
+    const availableTopics = ['HTML', 'CSS', 'Python', 'JavaScript', 'TypeScript', 'Go' , 'Rust' , 'C++ ', 'Java', 'C#', 'C', 'PHP ', 'Lua'];
 
     const handleTopicChange = (event) => {
         const selectedValue = event.target.value;
