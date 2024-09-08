@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+// SearchBar.js
+import React, { useState, useEffect } from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
     const [query, setQuery] = useState('');
+
+    useEffect(() => {
+        onSearch(query);
+    }, [query, onSearch]);
 
     const handleInputChange = (e) => {
         setQuery(e.target.value);
     };
-
-    // const handleSearch = () => {
-    //     // Implement search logic here if needed
-    //     console.log('Search query:', query);
-    // };
 
     return (
         <div className="search-bar-container">
@@ -23,11 +23,7 @@ const SearchBar = () => {
                     placeholder="Type Here To Search..."
                     className="search-input"
                 />
-                {/* <button onClick={handleSearch} className="search-button">
-                    <i className="fas fa-search"></i>
-                </button> */}
             </div>
-            
         </div>
     );
 };

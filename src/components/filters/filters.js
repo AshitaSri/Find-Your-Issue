@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './filters.css';
 
-const Filters = () => {
-    const [stars, setStars] = useState(0);
+const Filters = ({ stars, setStars, recentIssues, setRecentIssues, bookmarked, setBookmarked }) => {
     const [displayStars, setDisplayStars] = useState('0');
-    const [recentIssues, setRecentIssues] = useState(false);
-    const [bookmarked, setBookmarked] = useState(false);
-
     const starRanges = [0, 25, 50, 100, 150, 250, 500, 1000, 5000, 10000, 20000, 50000];
-    
-
-    // const handleStarChange = (e) => {
-    //     const value = parseInt(e.target.value);
-    //     setStars(value);
-    // };
 
     useEffect(() => {
         if (stars <= 1000) {
@@ -33,7 +23,7 @@ const Filters = () => {
         <div className="filters">
             <h3>Filters</h3>
             <div className="star-filter">
-                <label htmlFor="stars">Minimum Stars: {displayStars}</label>
+                <label htmlFor="stars">Maximum Stars: {displayStars}</label>
                 <input 
                     type="range" 
                     id="stars" 
@@ -44,7 +34,6 @@ const Filters = () => {
                     className="star-range"
                     step="1"
                 />
-                
             </div>
             <div className="checkbox-filters">
                 <label className="checkbox-label">
@@ -53,7 +42,7 @@ const Filters = () => {
                         checked={recentIssues} 
                         onChange={() => setRecentIssues(!recentIssues)}
                     />
-                    <span className="checkbox-text">Recently added issues (unassigned)</span>
+                    <span className="checkbox-text">Recently added issues</span>
                 </label>
                 <label className="checkbox-label">
                     <input 

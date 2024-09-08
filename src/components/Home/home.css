@@ -132,3 +132,7 @@ p {
 .generate-button:hover {
     background-color: #4b6cb7;
 }
+
+.empty-message{
+    color: #1c2f65;
+}
