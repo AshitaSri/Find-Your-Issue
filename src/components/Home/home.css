@@ -95,6 +95,14 @@ p {
     font-size: 14px;
     color: #24292e;
     margin: 4px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;  /* Limit to 4 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5; /* Adjust line height as needed */
+    max-height: 6em; /* Adjust based on line height (4 lines * 1.5em per line) */
 }
 
 .repo-stats {
