@@ -4,7 +4,7 @@
     /* height: 100vh; */
     margin-top: 33px;
     min-height: calc(100vh - 80px);
-    background-color: #f5f7fa;
+    background-color: var(--bg-primary);
     padding: 20px;
     box-sizing: border-box;
     
@@ -24,10 +24,10 @@
     padding: 20px;
     margin-top: 10px;
     box-sizing: border-box;
-    background-color: #ffffff;
+    background-color: var(--bg-secondary);
+    box-shadow: 0px 0px 10px var(--shadow-color);
     
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto; /* Add this line to enable vertical scrolling */
     max-height: calc(100vh - 40px); /* Subtract the dashboard-layout padding */
 }

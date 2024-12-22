@@ -1,7 +1,11 @@
 import React from 'react';
+import { Sun, Moon } from 'lucide-react';
+import { useTheme } from '../../contexts/ThemeContext';
 import './Navbar.css';
 
+
 const NavBar = () => {
+    const { theme, toggleTheme } = useTheme();
     return (
         <nav className="navbar">
             <div className="navbar-left">
@@ -22,7 +26,13 @@ const NavBar = () => {
                     </button>
                 </a>
             </div>
-
+            <button 
+                onClick={toggleTheme} 
+                className="theme-toggle"
+                aria-label="Toggle theme"
+            >
+                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
         </nav>
     );
 };

@@ -2,17 +2,19 @@ import React from 'react';
 import NavBar from './components/Navbar/Navbar';
 // import dashboard from './components/dashboard/dashboard'
 import Page from './components/page/page';
+import { ThemeProvider } from './contexts/ThemeContext';
+import './styles/themes.css';
 
 function App() {
-
   return (
-    <div className="app">
-      <NavBar />
-      <div className="content">
-        {/* <dashboard /> */}
-        <Page/>
+    <ThemeProvider>
+      <div className="app">
+        <NavBar />
+        <div className="content">
+          <Page />
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 

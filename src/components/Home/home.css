@@ -3,7 +3,7 @@
 .home-container {
     padding: 24px;
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-color: var(--bg-primary);
 }
 
 .search-container {
@@ -25,8 +25,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #2778db;
-    color: white;
+    background-color: var(--button-primary);
+    color: var(--text-button);
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
@@ -36,7 +36,7 @@
 }
 
 .generate-button:hover {
-    background-color: #1b5aa5;
+    background-color: var(--button-primary-hover);
 }
 
 .button-icon {
@@ -48,8 +48,8 @@
     margin: 32px auto;
     width: 32px;
     height: 32px;
-    border: 3px solid #f3f3f3;
-    border-top: 3px solid #2778db;
+    border: 3px solid var(--bg-secondary);
+    border-top: 3px solid var(--accent-color);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -60,8 +60,8 @@
 }
 
 .error-message {
-    background-color: #fee2e2;
-    color: #dc2626;
+    background-color: var(--error-bg);
+    color: var(--error-text);
     padding: 16px;
     border-radius: 8px;
     margin-bottom: 16px;
@@ -71,15 +71,19 @@
 .empty-message {
     text-align: center;
     padding: 48px;
-    background-color: white;
+    background-color: var(--bg-secondary);
+    box-shadow: 0 1px 3px var(--shadow-color);
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    
+}
+.empty-message p{
+    color: var(--text-primary);
 }
 
 .empty-icon {
     width: 48px;
     height: 48px;
-    color: #2778db;
+    color: var(--accent-color);
     margin: 0 auto 16px;
 }
 
@@ -92,10 +96,10 @@
 }
 
 .repo-card {
-    background-color: white;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px var(--shadow-color);
     border-radius: 8px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     transition: box-shadow 0.2s, transform 0.2s;
     cursor: pointer;
 }
@@ -125,11 +129,11 @@
 .repo-icon {
     width: 16px;
     height: 16px;
-    color: #6b7280;
+    color: var(--text-secondary);
 }
 
 .repo-name {
-    color: #2778db;
+    color: var(--accent-color);
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
@@ -143,8 +147,8 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background-color: #e1effe;
-    color: #2778db;
+    background-color: var(--button-secondary);
+    color: var(--accent-color);
     border: none;
     border-radius: 16px;
     padding: 4px 12px;
@@ -154,7 +158,7 @@
 }
 
 .issues-button:hover {
-    background-color: #bfdbfe;
+    background-color: var(--button-secondary-hover);
 }
 
 .issues-icon {
@@ -163,7 +167,7 @@
 }
 
 .repo-description {
-    color: #6b7280;
+    color: var(--text-secondary);
     font-size: 14px;
     line-height: 1.5;
     margin: 8px 0;
@@ -185,7 +189,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #6b7280;
+    color: var(--text-secondary);
     font-size: 14px;
 }
 
@@ -202,12 +206,12 @@
 
 .repo-expanded {
     padding: 16px;
-    background-color: #f8fafc;
-    border-top: 1px solid #e5e7eb;
+    background-color: var(--hover-bg);
+    border-top: 1px solid var(--border-color);
 }
 
 .repo-expanded p {
-    color: #6b7280;
+    color: var(--text-secondary);
     font-size: 14px;
     margin: 4px 0;
 }
