@@ -1,138 +1,230 @@
-/* Home.css */
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-a {
-    font-weight: bold;
-    color: #4b6cb7; /* Updated link color */
-    text-decoration: none;
-}
-
-a:hover {
-    color: #182848; /* Updated hover color */
-    text-decoration: underline;
-}
-
-p {
-    margin: 5px 0;
-}
-
 /* home.css */
 
 .home-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.search-section {
-    margin-bottom: 20px;
-}
-.repos-container {
-    background-color: #ffff;
-    padding: 20px;
-}
-
-.repos-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.repo-item {
-    background-color: #ffffff;
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease;
-    border: 1px solid #2778db;
-}
-
-.repo-item:hover {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-.repo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-}
-
-.repo-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #0366d6;
-    text-decoration: none;
-}
-
-.repo-issues {
-    font-size: 12px;
-    color: #586069;
-    background-color: #f1f8ff;
-    padding: 2px 6px;
-    border-radius: 10px;
-}
-
-.repo-description {
-    font-size: 14px;
-    color: #24292e;
-    margin: 4px 0;
-}
-
-.repo-stats {
-    font-size: 12px;
-    color: #586069;
+    padding: 24px;
+    min-height: 100vh;
+    background-color: #f5f5f5;
 }
 
 .search-container {
-    width: 100%;
-    max-width: 800px; /* Adjust this value as needed */
+    max-width: 1000px;
     margin: 0 auto 20px;
 }
 
 .search-wrapper {
     display: flex;
     align-items: center;
+    gap: 16px;
 }
 
-.search-wrapper > div {  /* This targets the SearchBar component */
+.search-wrapper > div {
     flex-grow: 1;
-    margin-right: 10px;
 }
 
 .generate-button {
-    background-color: #182848;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #2778db;
+    color: white;
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
     cursor: pointer;
     font-size: 14px;
-    color: #ffffff;
-    white-space: nowrap;
+    transition: background-color 0.2s;
 }
 
 .generate-button:hover {
-    background-color: #4b6cb7;
+    background-color: #1b5aa5;
 }
 
-.empty-message{
-    color: #1c2f65;
+.button-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.loading-spinner {
+    margin: 32px auto;
+    width: 32px;
+    height: 32px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #2778db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 48px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.empty-icon {
+    width: 48px;
+    height: 48px;
+    color: #2778db;
+    margin: 0 auto 16px;
+}
+
+.repos-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.repo-card {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+
+.repo-card:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.repo-content {
+    padding: 16px;
+}
+
+.repo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.repo-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.repo-icon {
+    width: 16px;
+    height: 16px;
+    color: #6b7280;
+}
+
+.repo-name {
+    color: #2778db;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.repo-name:hover {
+    text-decoration: underline;
+}
+
+.issues-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #e1effe;
+    color: #2778db;
+    border: none;
+    border-radius: 16px;
+    padding: 4px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.issues-button:hover {
+    background-color: #bfdbfe;
+}
+
+.issues-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.repo-description {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 8px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 4;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.repo-stats {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.repo-language, .repo-stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.language-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.star-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.repo-expanded {
+    padding: 16px;
+    background-color: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+}
+
+.repo-expanded p {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 16px;
+    }
+
+    .search-wrapper {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .generate-button {
+        width: 100%;
+        justify-content: center;
+    }
 }
