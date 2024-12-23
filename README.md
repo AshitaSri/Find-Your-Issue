@@ -2,9 +2,10 @@
 
 ## Backend Architecture
 
-![Screenshot 2024-12-22 at 7.59.59 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b185ebd1-69b1-4b77-bc41-54c876e8fc91/61f81eb3-e5a3-4c77-bbd0-8e12b4d0f94b/Screenshot_2024-12-22_at_7.59.59_PM.png)
+![WhatsApp Image 2024-12-22 at 6 19 12 PM](https://github.com/user-attachments/assets/f754dac7-236f-4bb1-9580-8ecea83bc167)
 
-![Screenshot 2024-12-22 at 8.00.11 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b185ebd1-69b1-4b77-bc41-54c876e8fc91/b482ad45-2bdd-4b27-b7c4-f82cb7603e54/Screenshot_2024-12-22_at_8.00.11_PM.png)
+![WhatsApp Image 2024-12-22 at 6 19 40 PM](https://github.com/user-attachments/assets/a006cc8e-b661-4a9b-bb36-d2221aadbd9f)
+
 
 ### Structure & Components
 
