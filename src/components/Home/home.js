@@ -1,49 +1,67 @@
 // Home.js
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 import { GitBranch, Star, MessageCircle } from 'lucide-react';
 import SearchBar from '../seachBar/SearchBar';
 import './home.css';
 
-const Home = ({ selectedTopics, stars }) => {
+
+const Home = ({ selectedTopics, stars, recentIssues }) => {
     const [repos, setRepos] = useState([]);
     const [filteredRepos, setFilteredRepos] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [expandedRepo, setExpandedRepo] = useState(null);
+    const [updateTrigger, setUpdateTrigger] = useState(0); // New state for forcing updates
 
-    const handleSearch = (query) => {
-        setSearchQuery(query);
-        if (query === '') {
+    // Effect to handle search filtering whenever repos or search query changes
+    useEffect(() => {
+        if (searchQuery === '') {
             setFilteredRepos(repos);
         } else {
             const filtered = repos.filter(repo =>
-                repo.name.toLowerCase().includes(query.toLowerCase()) ||
-                (repo.description && repo.description.toLowerCase().includes(query.toLowerCase()))
+                repo.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                (repo.description && repo.description.toLowerCase().includes(searchQuery.toLowerCase()))
             );
             setFilteredRepos(filtered);
         }
+    }, [repos, searchQuery, updateTrigger]); // Added updateTrigger dependency
+
+    const handleSearch = (query) => {
+        setSearchQuery(query);
     };
 
     const handleGenerate = async () => {
         setLoading(true);
         setError(null);
+        setFilteredRepos([]); // Clear current results immediately
+        
         try {
             const response = await axios.get('https://find-ashen.vercel.app/repos', {
                 params: {
                     languages: selectedTopics.join(','),
-                    maxStars: stars
+                    maxStars: stars,
+                    showOnlyWithIssues: recentIssues
                 }
             });
-            setRepos(response.data.repos);
-            setFilteredRepos(response.data.repos);
+            
+            // Update states in sequence
+            await setRepos(response.data.repos);
+            setUpdateTrigger(prev => prev + 1); // Force a refresh
             setLoading(false);
-            handleSearch(searchQuery);
         } catch (err) {
             setError('An error occurred while fetching repositories.');
             setLoading(false);
+            setRepos([]);
+            setFilteredRepos([]);
         }
+    };
+
+    // Rest of the component remains the same...
+    const handleIssuesClick = (repoFullName, event) => {
+        event.stopPropagation();
+        window.open(`https://github.com/${repoFullName}/issues`, '_blank');
     };
 
     const handleRepoClick = (repoName) => {
@@ -65,11 +83,15 @@ const Home = ({ selectedTopics, stars }) => {
     return (
         <div className="home-container">
             <div className="search-container">
-                <div className="search-wrapper">
-                    <SearchBar onSearch={setSearchQuery} />
-                    <button onClick={handleGenerate} className="generate-button">
-                        {/* <GitBranch className="button-icon" /> */}
-                        Generate
+            <div className="search-wrapper">
+                    <SearchBar onSearch={handleSearch} />
+                    <button 
+                        onClick={handleGenerate} 
+                        className="generate-button"
+                        disabled={loading} // Disable button while loading
+                    >
+                        <GitBranch className="button-icon" />
+                        {loading ? 'Generating...' : 'Generate'}
                     </button>
                 </div>
             </div>
@@ -80,8 +102,8 @@ const Home = ({ selectedTopics, stars }) => {
             {filteredRepos.length === 0 && !loading && !error && (
                 <div className="empty-message">
                     <MessageCircle className="empty-icon" />
-                    <p>🔍 Oops! Nothing to see here yet.</p>
-                    <p>Add some filters or topics to get started, and watch the magic happen! 🪄</p>
+                    <p>🔍 No repositories found.</p>
+                    <p>Try adjusting your filters or topics to find repositories! 🪄</p>
                 </div>
             )}
 
@@ -106,9 +128,12 @@ const Home = ({ selectedTopics, stars }) => {
                                         {repo.full_name}
                                     </a>
                                 </div>
-                                <button className="issues-button">
+                                <button 
+                                    className="issues-button"
+                                    onClick={(e) => handleIssuesClick(repo.full_name, e)}
+                                >
                                     <MessageCircle className="issues-icon" />
-                                    <span>{repo.open_issues} issues</span>
+                                    <span>{repo.open_issues_count} issues</span>
                                 </button>
                             </div>
 
@@ -131,8 +156,8 @@ const Home = ({ selectedTopics, stars }) => {
 
                         {expandedRepo === repo.full_name && (
                             <div className="repo-expanded">
-                                <p>Click "issues" to view available tasks for contribution.</p>
-                                <p>More details coming soon!</p>
+                                <p>Click the issues button above to view available tasks for contribution.</p>
+                                <p>This repository has {repo.open_issues_count} open issues to work on!</p>
                             </div>
                         )}
                     </div>
