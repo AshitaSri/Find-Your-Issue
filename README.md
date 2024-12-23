@@ -2,12 +2,12 @@
 
 ## Backend Architecture
 
-![WhatsApp Image 2024-12-22 at 6 19 12 PM](https://github.com/user-attachments/assets/f754dac7-236f-4bb1-9580-8ecea83bc167)
-
-![WhatsApp Image 2024-12-22 at 6 19 40 PM](https://github.com/user-attachments/assets/a006cc8e-b661-4a9b-bb36-d2221aadbd9f)
+<img width="1436" alt="Screenshot 2024-12-22 at 7 59 59 PM" src="https://github.com/user-attachments/assets/6217556c-cab7-475e-b0d4-eaa9632976d3" />
+<img width="1433" alt="Screenshot 2024-12-22 at 8 00 11 PM" src="https://github.com/user-attachments/assets/bfe2da7e-4da7-460a-a510-3b33662cb4b9" />
 
 
 ### Structure & Components
+
 
 - **Server**: Node.js with Express framework
 - **API Integration**: GitHub REST API for fetching repository and issue data
